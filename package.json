@@ -1,11 +1,11 @@
 {
-  "name": "react-native-circular-progress",
+  "name": "react-native-circular-progress-gradient",
   "version": "1.3.7",
   "description": "React Native component for creating animated, circular progress with react-native-svg",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/bgryszko/react-native-circular-progress.git"
+    "url": "git+ssh://git@github.com/thanakij/react-native-circular-progress.git"
   },
   "keywords": [
     "react",
