@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, ViewPropTypes } from 'react-native';
 import { Svg, Path, G } from 'react-native-svg';
+import { Defs, LinearGradient, Stop } from 'react-native-svg';
 
 export default class CircularProgress extends React.PureComponent {
   polarToCartesian(centerX, centerY, radius, angleInDegrees) {
@@ -28,6 +29,7 @@ export default class CircularProgress extends React.PureComponent {
       width,
       backgroundWidth,
       tintColor,
+      tintColorSecondary,
       tintTransparency,
       backgroundColor,
       style,
@@ -100,6 +102,14 @@ export default class CircularProgress extends React.PureComponent {
     return (
       <View style={style}>
         <Svg width={size + padding} height={size + padding}>
+          {tintColorSecondary && (
+            <Defs>
+              <LinearGradient id={'gradient'} x1={'0%'} y={'0%'} x2={'0%'} y2={'100%'}>
+                <Stop offset={'0%'} stopColor={tintColor} />
+                <Stop offset={'100%'} stopColor={tintColorSecondary} />
+              </LinearGradient>
+            </Defs>
+          )}
           <G rotation={rotation} originX={(size + padding) / 2} originY={(size + padding) / 2}>
             {backgroundColor && (
               <Path
@@ -108,17 +118,17 @@ export default class CircularProgress extends React.PureComponent {
                 strokeWidth={backgroundWidth || width}
                 strokeLinecap={lineCap}
                 strokeDasharray={strokeDasharrayBackground}
-                fill="transparent"
+                fill="none"
               />
             )}
             {fill > 0 && (
               <Path
                 d={circlePath}
-                stroke={tintColor}
+                stroke={tintColorSecondary ? 'url(#gradient)' : tintColor}
                 strokeWidth={width}
                 strokeLinecap={lineCap}
                 strokeDasharray={strokeDasharrayTint}
-                fill="transparent"
+                fill="none"
               />
             )}
             {cap}
@@ -137,6 +147,7 @@ CircularProgress.propTypes = {
   width: PropTypes.number.isRequired,
   backgroundWidth: PropTypes.number,
   tintColor: PropTypes.string,
+  tintColorSecondary: PropTypes.string,
   tintTransparency: PropTypes.bool,
   backgroundColor: PropTypes.string,
   rotation: PropTypes.number,
