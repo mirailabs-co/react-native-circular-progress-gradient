@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/thanakij/react-native-circular-progress.git"
+    "url": "git+ssh://git@github.com/thanakij/react-native-circular-progress-gradient.git"
   },
   "keywords": [
     "react",
@@ -16,14 +16,14 @@
     "react-svg"
   ],
   "author": {
-    "name": "Bart Gryszko",
-    "email": "b@gryszko.com"
+    "name": "Thanakij Pechprasarn",
+    "email": "pechpras@gmail.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bgryszko/react-native-circular-progress/issues"
+    "url": "https://github.com/thanakij/react-native-circular-progress-gradient/issues"
   },
-  "homepage": "https://github.com/bgryszko/react-native-circular-progress",
+  "homepage": "https://github.com/thanakij/react-native-circular-progress-gradient",
   "dependencies": {
     "prop-types": "^15.7.2"
   },
