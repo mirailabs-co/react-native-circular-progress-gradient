@@ -35,6 +35,7 @@ export default class CircularProgress extends React.PureComponent {
       style,
       rotation,
       lineCap,
+      lineJoin,
       arcSweepAngle,
       fill,
       children,
@@ -117,6 +118,7 @@ export default class CircularProgress extends React.PureComponent {
                 stroke={backgroundColor}
                 strokeWidth={backgroundWidth || width}
                 strokeLinecap={lineCap}
+                strokeLinejoin={lineJoin}
                 strokeDasharray={strokeDasharrayBackground}
                 fill="none"
               />
@@ -127,6 +129,7 @@ export default class CircularProgress extends React.PureComponent {
                 stroke={tintColorSecondary ? 'url(#gradient)' : tintColor}
                 strokeWidth={width}
                 strokeLinecap={lineCap}
+                strokeLinejoin={lineJoin}
                 strokeDasharray={strokeDasharrayTint}
                 fill="none"
               />
@@ -152,6 +155,7 @@ CircularProgress.propTypes = {
   backgroundColor: PropTypes.string,
   rotation: PropTypes.number,
   lineCap: PropTypes.string,
+  lineJoin: PropTypes.string,
   arcSweepAngle: PropTypes.number,
   children: PropTypes.func,
   childrenContainerStyle: ViewPropTypes.style,
@@ -165,7 +169,8 @@ CircularProgress.defaultProps = {
   tintColor: 'black',
   tintTransparency: true,
   rotation: 90,
-  lineCap: 'butt',
+  lineCap: 'round',
+  lineJoin: 'round',
   arcSweepAngle: 360,
   padding: 0,
   dashedBackground: { width: 0, gap: 0 },
