@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated, Easing } from 'react-native';
 import CircularProgress from './CircularProgress';
+
 const AnimatedProgress = Animated.createAnimatedComponent(CircularProgress);
 
 export default class AnimatedCircularProgress extends React.PureComponent {
@@ -62,9 +63,9 @@ export default class AnimatedCircularProgress extends React.PureComponent {
   }
 
   render() {
-    const { fill, prefill, ...other } = this.props;
+    const { fill, prefill, onPress, ...other } = this.props;
 
-    return <AnimatedProgress {...other} fill={this.state.fillAnimation} />;
+    return <AnimatedProgress {...other} fill={this.state.fillAnimation} onPress={() => { this.reAnimate(0); }} />;
   }
 }
 

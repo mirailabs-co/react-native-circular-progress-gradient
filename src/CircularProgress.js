@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, ViewPropTypes } from 'react-native';
+import { TouchableOpacity, View, ViewPropTypes } from 'react-native';
 import { Svg, Path, G } from 'react-native-svg';
 import { Defs, LinearGradient, Stop } from 'react-native-svg';
 
@@ -43,7 +43,8 @@ export default class CircularProgress extends React.PureComponent {
       padding,
       renderCap,
       dashedBackground,
-      dashedTint
+      dashedTint,
+      onPress
     } = this.props;
 
     const maxWidthCircle = backgroundWidth ? Math.max(width, backgroundWidth) : width;
@@ -102,6 +103,7 @@ export default class CircularProgress extends React.PureComponent {
 
     return (
       <View style={style}>
+       <TouchableOpacity onPress={onPress}>
         <Svg width={size + padding} height={size + padding}>
           {tintColorSecondary && (
             <Defs>
@@ -138,6 +140,7 @@ export default class CircularProgress extends React.PureComponent {
           </G>
         </Svg>
         {children && <View style={localChildrenContainerStyle}>{children(fill)}</View>}
+       </TouchableOpacity>
       </View>
     );
   }
