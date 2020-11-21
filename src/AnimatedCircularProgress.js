@@ -63,9 +63,9 @@ export default class AnimatedCircularProgress extends React.PureComponent {
   }
 
   render() {
-    const { fill, prefill, onPress, ...other } = this.props;
+    const { fill, prefill, reAnimateOnPress, ...other } = this.props;
 
-    return <AnimatedProgress {...other} fill={this.state.fillAnimation} onPress={() => { this.reAnimate(prefill); }} />;
+    return <AnimatedProgress {...other} fill={this.state.fillAnimation} onPress={reAnimateOnPress ? () => this.reAnimate(prefill) : undefined} />;
   }
 }
 
@@ -76,6 +76,7 @@ AnimatedCircularProgress.propTypes = {
   easing: PropTypes.func,
   onAnimationComplete: PropTypes.func,
   useNativeDriver: PropTypes.bool,
+  reAnimateOnPress: PropTypes.bool,
 };
 
 AnimatedCircularProgress.defaultProps = {
@@ -83,4 +84,5 @@ AnimatedCircularProgress.defaultProps = {
   easing: Easing.out(Easing.ease),
   prefill: 0,
   useNativeDriver: false,
+  reAnimateOnPress: true,
 };

@@ -101,9 +101,11 @@ export default class CircularProgress extends React.PureComponent {
       .map(value => parseInt(value))
       : null;
 
+    const disabled = !onPress ? true : false
+
     return (
       <View style={style}>
-       <TouchableOpacity onPress={onPress}>
+       <TouchableOpacity activeOpacity={disabled ? 1 : 0.7} disabled={disabled} onPress={onPress}>
         <Svg width={size + padding} height={size + padding}>
           {tintColorSecondary && (
             <Defs>
