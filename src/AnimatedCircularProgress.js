@@ -65,7 +65,7 @@ export default class AnimatedCircularProgress extends React.PureComponent {
   render() {
     const { fill, prefill, onPress, ...other } = this.props;
 
-    return <AnimatedProgress {...other} fill={this.state.fillAnimation} onPress={() => { this.reAnimate(0); }} />;
+    return <AnimatedProgress {...other} fill={this.state.fillAnimation} onPress={() => { this.reAnimate(prefill); }} />;
   }
 }
 
