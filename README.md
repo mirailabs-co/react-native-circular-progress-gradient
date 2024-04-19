@@ -4,6 +4,8 @@
 [![Version](https://img.shields.io/npm/v/react-native-circular-progress.svg)](https://www.npmjs.com/package/react-native-circular-progress)
 [![npm](https://img.shields.io/npm/dt/react-native-circular-progress.svg)](https://www.npmjs.com/package/react-native-circular-progress)
 
+WHY FORK?
+In order to better maintain the circular progress with gradients, and we additionally intend to support multiple color segments in LinearGradient.
 
 React Native component for creating animated, circular progress. Useful for displaying users points for example.
 
